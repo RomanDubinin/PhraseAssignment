@@ -1,2 +1,4 @@
 rootProject.name = 'PhraseAssignment'
+include 'WebService'
+include 'WebApiClient'
 
