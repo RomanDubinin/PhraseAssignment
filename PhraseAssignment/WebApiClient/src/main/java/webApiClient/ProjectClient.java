@@ -15,9 +15,9 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class ProjectClient {
-    private Logger logger = Logger.getLogger(String.valueOf(ProjectClient.class));
-    private HttpClient httpClient;
-    private TokenProvider tokenProvider;
+    private final Logger logger = Logger.getLogger(String.valueOf(ProjectClient.class));
+    private final HttpClient httpClient;
+    private final TokenProvider tokenProvider;
 
     public ProjectClient() {
         httpClient = HttpClient.newBuilder().build();

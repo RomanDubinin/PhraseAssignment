@@ -9,7 +9,7 @@ import java.util.Arrays;
 
 @Service
 public class ProjectService {
-    private ProjectClient projectClient;
+    private final ProjectClient projectClient;
 
     public ProjectService(){
         projectClient = new ProjectClient();

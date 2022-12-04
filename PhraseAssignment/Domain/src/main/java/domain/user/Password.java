@@ -1,7 +1,7 @@
 package domain.user;
 
 public class Password {
-    private String password;
+    private final String password;
 
     public Password(String password){
         if (password == null || password.isEmpty())

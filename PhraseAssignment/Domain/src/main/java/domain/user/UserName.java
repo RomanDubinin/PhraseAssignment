@@ -1,7 +1,7 @@
 package domain.user;
 
 public class UserName {
-    private String userName;
+    private final String userName;
 
     public UserName(String userName){
         if (userName == null || userName.isEmpty())
