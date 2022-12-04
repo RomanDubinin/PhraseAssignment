@@ -12,11 +12,11 @@ public class TmsAccountService {
     @Autowired
     private TmsAccountRepository tmsAccountRepository;
 
-    public TmsAccount get(Long id){
+    public TmsAccount get(Long id) {
         return tmsAccountRepository.findById(id).map(TmsAccountConverter::convert).orElse(null);
     }
 
-    public TmsAccount save(TmsAccountParameter account){
+    public TmsAccount save(TmsAccountParameter account) {
         var domainEntity = TmsAccountConverter.convert(account);
         return TmsAccountConverter.convert(tmsAccountRepository.save(domainEntity));
     }
@@ -29,7 +29,7 @@ public class TmsAccountService {
         return TmsAccountConverter.convert(tmsAccountRepository.save(domainEntity));
     }
 
-    public void delete(Long id){
+    public void delete(Long id) {
         tmsAccountRepository.deleteById(id);
     }
 }

@@ -3,7 +3,7 @@ package domain.user;
 public class Password {
     private final String password;
 
-    public Password(String password){
+    public Password(String password) {
         if (password == null || password.isEmpty())
             throw new IllegalArgumentException("Password cannot be empty");
 

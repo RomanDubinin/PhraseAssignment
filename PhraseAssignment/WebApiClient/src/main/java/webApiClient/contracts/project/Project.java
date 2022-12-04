@@ -5,6 +5,7 @@ import lombok.Getter;
 import webApiClient.contracts.common.*;
 
 import java.time.LocalDateTime;
+
 @Getter
 public class Project {
     private String id;
@@ -13,9 +14,9 @@ public class Project {
     private String name;
     private String userRole;
     private Progress progress;
-    @JsonFormat(shape=JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ssZ")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ssZ")
     private LocalDateTime dateCreated;
-    @JsonFormat(shape=JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ssZ")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ssZ")
     private LocalDateTime dateDue;
     private Reference[] references;
     private AnalyseSettings analyseSettings;

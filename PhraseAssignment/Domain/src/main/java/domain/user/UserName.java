@@ -3,7 +3,7 @@ package domain.user;
 public class UserName {
     private final String userName;
 
-    public UserName(String userName){
+    public UserName(String userName) {
         if (userName == null || userName.isEmpty())
             throw new IllegalArgumentException("User name cannot be empty");
 

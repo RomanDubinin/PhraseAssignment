@@ -5,13 +5,14 @@ import domain.user.UserName;
 import webservice.contracts.parameters.TmsAccountParameter;
 
 public class TmsAccountConverter {
-    private TmsAccountConverter(){}
+    private TmsAccountConverter() {
+    }
 
-    public static domain.user.TmsAccount convert(TmsAccountParameter tmsAccount){
+    public static domain.user.TmsAccount convert(TmsAccountParameter tmsAccount) {
         return convert(null, tmsAccount);
     }
 
-    public static domain.user.TmsAccount convert(Long id, TmsAccountParameter tmsAccount){
+    public static domain.user.TmsAccount convert(Long id, TmsAccountParameter tmsAccount) {
         return domain.user.TmsAccount.builder()
                 .id(id)
                 .userName(new UserName(tmsAccount.getUserName()))
@@ -19,7 +20,7 @@ public class TmsAccountConverter {
                 .build();
     }
 
-    public static webservice.contracts.outputs.TmsAccount convert(domain.user.TmsAccount tmsAccount){
+    public static webservice.contracts.outputs.TmsAccount convert(domain.user.TmsAccount tmsAccount) {
         return webservice.contracts.outputs.TmsAccount.builder()
                 .id(tmsAccount.getId())
                 .userName(tmsAccount.getUserName().toString())
