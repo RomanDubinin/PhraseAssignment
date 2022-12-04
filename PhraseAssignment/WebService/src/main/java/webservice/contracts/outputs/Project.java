@@ -1,4 +1,4 @@
-package webservice.contracts;
+package webservice.contracts.outputs;
 
 import lombok.Builder;
 import lombok.Getter;

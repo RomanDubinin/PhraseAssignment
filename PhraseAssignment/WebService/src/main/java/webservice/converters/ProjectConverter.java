@@ -1,6 +1,6 @@
 package webservice.converters;
 
-import webservice.contracts.Project;
+import webservice.contracts.outputs.Project;
 
 public class ProjectConverter {
     private ProjectConverter() {

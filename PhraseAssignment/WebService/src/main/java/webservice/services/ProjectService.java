@@ -2,7 +2,7 @@ package webservice.services;
 
 import org.springframework.stereotype.Service;
 import webApiClient.ProjectClient;
-import webservice.contracts.Project;
+import webservice.contracts.outputs.Project;
 import webservice.converters.ProjectConverter;
 
 import java.util.Arrays;
