@@ -1,7 +1,6 @@
 package webservice.controllers;
 
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import webservice.contracts.outputs.TmsAccount;
 import webservice.contracts.parameters.TmsAccountParameter;
@@ -10,8 +9,11 @@ import webservice.services.TmsAccountService;
 @RestController
 @RequestMapping("/tmsAccount")
 public class TmsAccountController {
-    @Autowired
-    private TmsAccountService tmsAccountService;
+    private final TmsAccountService tmsAccountService;
+
+    public TmsAccountController(TmsAccountService tmsAccountService) {
+        this.tmsAccountService = tmsAccountService;
+    }
 
     @GetMapping(value = "/get")
     public TmsAccount getTmsAccount(@RequestParam Long id) {

@@ -1,6 +1,5 @@
 package webservice.services;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import repositories.TmsAccountRepository;
 import webservice.contracts.outputs.TmsAccount;
@@ -9,8 +8,11 @@ import webservice.converters.TmsAccountConverter;
 
 @Service
 public class TmsAccountService {
-    @Autowired
-    private TmsAccountRepository tmsAccountRepository;
+    private final TmsAccountRepository tmsAccountRepository;
+
+    public TmsAccountService(TmsAccountRepository tmsAccountRepository) {
+        this.tmsAccountRepository = tmsAccountRepository;
+    }
 
     public TmsAccount get(Long id) {
         return tmsAccountRepository.findById(id).map(TmsAccountConverter::convert).orElse(null);
