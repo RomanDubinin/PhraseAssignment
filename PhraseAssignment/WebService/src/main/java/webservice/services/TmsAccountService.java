@@ -6,6 +6,8 @@ import webservice.contracts.outputs.TmsAccount;
 import webservice.contracts.parameters.TmsAccountParameter;
 import webservice.converters.TmsAccountConverter;
 
+import java.util.NoSuchElementException;
+
 @Service
 public class TmsAccountService {
     private final TmsAccountRepository tmsAccountRepository;
@@ -15,7 +17,10 @@ public class TmsAccountService {
     }
 
     public TmsAccount get(Long id) {
-        return tmsAccountRepository.findById(id).map(TmsAccountConverter::convert).orElse(null);
+        var account = tmsAccountRepository.findById(id).map(TmsAccountConverter::convert).orElse(null);
+        if (account == null)
+            throw new NoSuchElementException(String.format("TMS account with id %s does not exists", id));
+        return account;
     }
 
     public TmsAccount save(TmsAccountParameter account) {
