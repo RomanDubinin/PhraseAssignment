@@ -1,7 +1,10 @@
 package domain.user;
 
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor
 public class Password {
-    private final String password;
+    private String password;
 
     public Password(String password) {
         if (password == null || password.isEmpty())

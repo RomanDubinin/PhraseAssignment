@@ -1,7 +1,10 @@
 package domain.user;
 
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor
 public class UserName {
-    private final String userName;
+    private String userName;
 
     public UserName(String userName) {
         if (userName == null || userName.isEmpty())

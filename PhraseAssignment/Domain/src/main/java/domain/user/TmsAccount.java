@@ -1,7 +1,5 @@
 package domain.user;
 
-import domain.user.converters.PasswordAttributeConverter;
-import domain.user.converters.UserNameAttributeConverter;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -18,9 +16,9 @@ public class TmsAccount {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Convert(converter = UserNameAttributeConverter.class)
+    @Embedded
     private UserName userName;
 
-    @Convert(converter = PasswordAttributeConverter.class)
+    @Embedded
     private Password password;
 }
