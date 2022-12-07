@@ -2,6 +2,8 @@ package webApiClient.contracts.common;
 
 import lombok.Getter;
 
+import java.util.List;
+
 @Getter
 public class PagedContent<T> {
     private int totalElements;
@@ -9,5 +11,5 @@ public class PagedContent<T> {
     private int pageSize;
     private int pageNumber;
     private int numberOfElements;
-    private T[] content;
+    private List<T> content;
 }

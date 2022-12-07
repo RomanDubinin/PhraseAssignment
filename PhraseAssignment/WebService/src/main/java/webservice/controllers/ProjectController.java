@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RestController;
 import webservice.contracts.outputs.Project;
 import webservice.services.ProjectService;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/project")
 public class ProjectController {
@@ -19,7 +21,7 @@ public class ProjectController {
     }
 
     @GetMapping(value = "/getProjects")
-    public Project[] getProjects(
+    public List<Project> getProjects(
             @RequestParam Long userId,
             @RequestParam Integer pageSize,
             @RequestParam Integer pageNumber)

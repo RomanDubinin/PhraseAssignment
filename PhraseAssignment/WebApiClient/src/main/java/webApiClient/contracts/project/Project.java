@@ -5,6 +5,7 @@ import lombok.Getter;
 import webApiClient.contracts.common.*;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Getter
 public class Project {
@@ -18,16 +19,16 @@ public class Project {
     private LocalDateTime dateCreated;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ssZ")
     private LocalDateTime dateDue;
-    private Reference[] references;
+    private List<Reference> references;
     private AnalyseSettings analyseSettings;
     private AccessSettings accessSettings;
     private FinancialSettings financialSettings;
     private QualityAssuranceSettings qualityAssuranceSettings;
-    private MtSettingsPerLanguage[] mtSettingsPerLanguageList;
-    private WorkflowStep[] workflowSteps;
+    private List<MtSettingsPerLanguage> mtSettingsPerLanguageList;
+    private List<WorkflowStep> workflowSteps;
     private CostCenter costCenter;
     private String sourceLang;
-    private String[] targetLangs;
+    private List<String> targetLangs;
     private Domain domain;
     private Domain subDomain;
     private String businessUnit;

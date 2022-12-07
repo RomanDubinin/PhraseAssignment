@@ -5,7 +5,7 @@ import webApiClient.ProjectClient;
 import webservice.contracts.outputs.Project;
 import webservice.converters.ProjectConverter;
 
-import java.util.Arrays;
+import java.util.List;
 
 @Service
 public class ProjectService {
@@ -15,8 +15,8 @@ public class ProjectService {
         projectClient = new ProjectClient();
     }
 
-    public Project[] getProjects(Long userId, Integer pageSize, Integer pageNumber) throws Exception {
+    public List<Project> getProjects(Long userId, Integer pageSize, Integer pageNumber) throws Exception {
         var pagedContent = projectClient.getProjects(userId, pageSize, pageNumber);
-        return Arrays.stream(pagedContent.getContent()).map(ProjectConverter::convert).toArray(Project[]::new);
+        return pagedContent.getContent().stream().map(ProjectConverter::convert).toList();
     }
 }
