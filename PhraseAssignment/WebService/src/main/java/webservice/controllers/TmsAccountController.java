@@ -15,23 +15,23 @@ public class TmsAccountController {
         this.tmsAccountService = tmsAccountService;
     }
 
-    @GetMapping(value = "/get")
-    public TmsAccount getTmsAccount(@RequestParam Long id) {
+    @GetMapping("{id}")
+    public TmsAccount getTmsAccount(@PathVariable Long id) {
         return tmsAccountService.get(id);
     }
 
-    @PostMapping(value = "/create")
+    @PostMapping
     public TmsAccount createTmsAccount(@RequestBody TmsAccountParameter account) {
         return tmsAccountService.save(account);
     }
 
-    @PutMapping(value = "/edit")
-    public TmsAccount editTmsAccount(@RequestParam Long id, @RequestBody TmsAccountParameter account) {
+    @PutMapping("{id}")
+    public TmsAccount editTmsAccount(@PathVariable Long id, @RequestBody TmsAccountParameter account) {
         return tmsAccountService.edit(id, account);
     }
 
-    @DeleteMapping(value = "/delete")
-    public void deleteTmsAccount(@RequestParam Long id) {
+    @DeleteMapping("{id}")
+    public void deleteTmsAccount(@PathVariable Long id) {
         tmsAccountService.delete(id);
     }
 }
