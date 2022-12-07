@@ -18,10 +18,16 @@ public class ProjectClient {
     private final Logger logger = Logger.getLogger(String.valueOf(ProjectClient.class));
     private final HttpClient httpClient;
     private final TokenProvider tokenProvider;
+    private final ObjectMapper objectMapper;
+    private final TypeReference<PagedContent<Project>> valueTypeRef;
 
     public ProjectClient() {
         httpClient = HttpClient.newBuilder().build();
         tokenProvider = new TokenProvider();
+        objectMapper = new ObjectMapper();
+        objectMapper.registerModule(new JavaTimeModule());
+        valueTypeRef = new TypeReference<>() {
+        };
     }
 
     public PagedContent<Project> getProjects(Long userId, Integer pageSize, Integer pageNumber) throws Exception {
@@ -42,8 +48,6 @@ public class ProjectClient {
         }
 
         var json = response.body();
-        var objectMapper = new ObjectMapper();
-        objectMapper.registerModule(new JavaTimeModule());
-        return objectMapper.readValue(json, new TypeReference<>() {});
+        return objectMapper.readValue(json, valueTypeRef);
     }
 }
