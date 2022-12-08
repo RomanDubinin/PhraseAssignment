@@ -1,5 +1,6 @@
 package webservice.controllers;
 
+import org.springframework.dao.CannotAcquireLockException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -23,5 +24,12 @@ public class GlobalExceptionHandler {
         Map<String, Object> response = new HashMap<>();
         response.put("message", e.getMessage());
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
+    }
+
+    @ExceptionHandler(CannotAcquireLockException.class)
+    public ResponseEntity<Map<String, Object>> handleError(CannotAcquireLockException e) {
+        Map<String, Object> response = new HashMap<>();
+        response.put("message", "Conflict on data change operation.");
+        return ResponseEntity.status(HttpStatus.CONFLICT).body(response);
     }
 }

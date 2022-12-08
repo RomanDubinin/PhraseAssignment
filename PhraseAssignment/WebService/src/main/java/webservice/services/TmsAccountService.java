@@ -1,6 +1,8 @@
 package webservice.services;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Transactional;
 import repositories.TmsAccountRepository;
 import webservice.contracts.outputs.TmsAccount;
 import webservice.contracts.parameters.TmsAccountParameter;
@@ -28,6 +30,7 @@ public class TmsAccountService {
         return TmsAccountConverter.convert(tmsAccountRepository.save(domainEntity));
     }
 
+    @Transactional(isolation = Isolation.REPEATABLE_READ)
     public TmsAccount edit(Long id, TmsAccountParameter account) {
         if (!tmsAccountRepository.existsById(id))
             throw new IllegalArgumentException(String.format("TMS account with id %s does not exists", id));
