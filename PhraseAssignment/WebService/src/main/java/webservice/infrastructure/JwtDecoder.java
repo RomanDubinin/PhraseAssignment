@@ -8,14 +8,9 @@ import com.nimbusds.jose.crypto.RSADecrypter;
 import com.nimbusds.jwt.EncryptedJWT;
 import org.springframework.stereotype.Service;
 
-import java.nio.charset.StandardCharsets;
-import java.security.KeyFactory;
 import java.security.NoSuchAlgorithmException;
-import java.security.interfaces.RSAPrivateKey;
 import java.security.spec.InvalidKeySpecException;
-import java.security.spec.PKCS8EncodedKeySpec;
 import java.text.ParseException;
-import java.util.Base64;
 
 
 @Service
@@ -30,14 +25,9 @@ public class JwtDecoder {
     }
 
     public String decryptToken(String jwtString) throws NoSuchAlgorithmException, InvalidKeySpecException, JOSEException, ParseException, JsonProcessingException {
-        var keyFactory = KeyFactory.getInstance("RSA");
-        var keyBytes = Base64.getDecoder().decode(rsaKeysProvider.getPrivateKey().getBytes(StandardCharsets.UTF_8));
-        var specPrivate = new PKCS8EncodedKeySpec(keyBytes);
-        var fileGeneratedPrivateKey = keyFactory.generatePrivate(specPrivate);
-        var rsaPrv = (RSAPrivateKey) (fileGeneratedPrivateKey);
-
         var jwt = EncryptedJWT.parse(jwtString);
-        var decrypter = new RSADecrypter(rsaPrv);
+
+        var decrypter = new RSADecrypter(rsaKeysProvider.getPrivateKey());
         jwt.decrypt(decrypter);
         var loginResponseJson = jwt.getJWTClaimsSet().getClaim("login_response").toString();
 
