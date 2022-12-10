@@ -19,7 +19,7 @@ public class ProjectController {
         this.projectService = projectService;
     }
 
-    @GetMapping(value = "/getProjects")
+    @GetMapping(value = "/allProjects")
     public List<Project> getProjects(
             @RequestParam Long userId,
             @RequestParam Integer pageSize,
