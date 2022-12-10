@@ -33,7 +33,7 @@ public class TmsAccountService {
     @Transactional(isolation = Isolation.REPEATABLE_READ)
     public TmsAccount edit(Long id, TmsAccountParameter account) {
         if (!tmsAccountRepository.existsById(id))
-            throw new IllegalArgumentException(String.format("TMS account with id %s does not exists", id));
+            throw new NoSuchElementException(String.format("TMS account with id %s does not exists", id));
 
         var domainEntity = TmsAccountConverter.convert(id, account);
         return TmsAccountConverter.convert(tmsAccountRepository.save(domainEntity));
