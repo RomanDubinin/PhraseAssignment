@@ -49,7 +49,7 @@ public class AuthenticationFilter implements Filter {
                 apiToken = jwtDecoder.decryptToken(jwt);
             } catch (NoSuchAlgorithmException | ParseException | JOSEException | InvalidKeySpecException e) {
                 logger.log(Level.SEVERE, e.getMessage());
-                httpResponse.setStatus(HttpStatus.UNAUTHORIZED.value());
+                httpResponse.sendError(HttpStatus.UNAUTHORIZED.value(), e.getMessage());
                 return;
             }
             tokenProvider.setToken(apiToken);
