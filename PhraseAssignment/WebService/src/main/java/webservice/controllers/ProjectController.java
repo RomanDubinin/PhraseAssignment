@@ -31,6 +31,6 @@ public class ProjectController {
         if (pageNumber < 0)
             throw new IllegalArgumentException("Page number should be more or equal than 0");
 
-        return projectService.getProjects(userId, pageSize, pageNumber);
+        return projectService.getProjects(pageSize, pageNumber);
     }
 }

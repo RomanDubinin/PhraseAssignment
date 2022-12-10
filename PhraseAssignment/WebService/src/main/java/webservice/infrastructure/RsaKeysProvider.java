@@ -1,0 +1,23 @@
+package webservice.infrastructure;
+
+import org.springframework.stereotype.Service;
+
+@Service
+public class RsaKeysProvider {
+    private final String publicKey;
+    private final String privateKey;
+
+    RsaKeysProvider() {
+        //todo generate
+        publicKey = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAoFg9kU9I7g8t3ablvovp3jlvdFZlst+Lmat8+mCcRK0EdfN+p1cRVj7V0KouwaTOiIPzj36QlOH/K/SBO6SQZY5VUvV55AMZkTMKY+WSQfRP4ey8Yu8rDuRBh1X3X4I5jBqmNN/3mZR9Ibb7+Qew/XgGwMXRqOKRgXR2PEbUvj/b6IO9hiPE6gy6y55BkGlBOOuKzlJHLiPHVy8bpglebxc54Vyijuyy3Iz6l3VHDtUUu+gzu3muPZrSEszdQYEKzCC8MKQv+P0Hh2t9upyffUNrMocL5aqdphL4qmfkWshiNwubkIBkVs2dQPHs/5oFf5fa5AhCJjGUl48yCArVbQIDAQAB";
+        privateKey = "MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCgWD2RT0juDy3dpuW+i+neOW90VmWy34uZq3z6YJxErQR1836nVxFWPtXQqi7BpM6Ig/OPfpCU4f8r9IE7pJBljlVS9XnkAxmRMwpj5ZJB9E/h7Lxi7ysO5EGHVfdfgjmMGqY03/eZlH0htvv5B7D9eAbAxdGo4pGBdHY8RtS+P9vog72GI8TqDLrLnkGQaUE464rOUkcuI8dXLxumCV5vFznhXKKO7LLcjPqXdUcO1RS76DO7ea49mtISzN1BgQrMILwwpC/4/QeHa326nJ99Q2syhwvlqp2mEviqZ+RayGI3C5uQgGRWzZ1A8ez/mgV/l9rkCEImMZSXjzIICtVtAgMBAAECggEAB3HxceTPixYzV/5e3okak9Hw5eL5F+QfVERNKkcAGoQ6F8v1jomRaYLDZMvyHdWsLVSLI5eJ2Q/hTEYvFfjfJ4gDWDXDsh2eu0o2aksHjn5skx3t5V4bjrZ0gHcyZEHksCewnfXkRkJJyR349ygvRKWlEqBcys2yWeNxdf0H9clodm4bF1LluvJbNVYYKJdAm3XX6fLRsaL0nLPKd0O//7FsSQsBWzIBQVtCYzDfvt9OiXIsUe1OnfgokLHAB5ZKDm2+QfhL3/Rn5234kIS/lKO7x1yjPB+7klNT6f1Zw20YbxekSFgYDCTHLYG7vv9JVmi1wdzs0bz87jnFG2jzwQKBgQDRUsnaFUHmEN1s2VPiqs9M8WEd/OU+HzMxgU0YBG7wflBH0YqVChPr63M6AAkMgYB0a54Z04cYkjGjwaPbh31SYryBQbKU7nkbf4CWpVruOiuRVi7ajzl8KCQLbC/5nZC978Hs/PwB4xb7RpF91HJ1WwUHMqfJO4HctftyMSu4fQKBgQDEGYGQM+QNoupOj6roTbd3X9DO7aGPn8CyIZBP7iQfv7H/51SrU0Pq6wAH5MxOw5ahw7yeUHcfsxXZh2VZcXhEVuZ8aKExWxX6rtZKu6JuQ5JOM3cvgcUzJ1/jy0cqMKb0RJbhI1furC16VHwXRyqQQKsKqgAWxK1Oc5BFq8sTsQKBgQDF7jS0JLmlZHkb/fyWLtHKfcxJYOMb9MChpRRTC44jli0vW/Jgr6Dayk6wn2vvCV1/uGtNHHl4QHTz1ZytbtaP2pFI3+iPb1fRKqVazYzICvU7fnTbceb3gbVjn69VpypAj7+d6jIZTrRicf4NL5/zXFfK0JlbbQuEugfDmL8wuQKBgQC0p2azyQokAdznCPWC0u3cvFlp+ILpBFwJ/l+rMxD2aqv5u0xGFQwxo9LAcuhA+3COj/r4wdosStgrMM+OablJA+GL5Pvysx35dg4WhOsrt3ZWMpVvH5bi/Dgba86gsHdt+q4gtGWyi83Nr30uGLK+d8Taqygv0XpzFoVnmc8Y0QKBgFMbCsm0uHiG6ryMUrTFgzJ3gyS/5TceE9I9GRP/WkM0TQxuIVuPjqGXQZ/zUYY9Yf0NyF5qsh8ctr0OmXFlDm1RzclZkOuezQTLBqWBXpHHQiyPwNmU+VZut9W8CE2ucdH3+ewpY/Uet3wHLSTFdwfoVq1Xg77Szl1yCF5GL156";
+    }
+
+    public String getPublicKey() {
+        return publicKey;
+    }
+
+    public String getPrivateKey() {
+        return privateKey;
+    }
+}
