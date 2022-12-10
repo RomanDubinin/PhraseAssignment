@@ -39,7 +39,11 @@ public class TmsAccountService {
         return TmsAccountConverter.convert(tmsAccountRepository.save(domainEntity));
     }
 
+    @Transactional(isolation = Isolation.REPEATABLE_READ)
     public void delete(Long id) {
+        if (!tmsAccountRepository.existsById(id))
+            throw new NoSuchElementException(String.format("TMS account with id %s does not exists", id));
+
         tmsAccountRepository.deleteById(id);
     }
 }
