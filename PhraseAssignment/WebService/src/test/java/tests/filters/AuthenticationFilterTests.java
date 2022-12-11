@@ -1,4 +1,4 @@
-package tests.controllers;
+package tests.filters;
 
 import com.nimbusds.jose.JOSEException;
 import jakarta.servlet.FilterChain;
@@ -17,7 +17,6 @@ import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 import java.text.ParseException;
-import java.util.logging.Logger;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
@@ -29,8 +28,6 @@ public class AuthenticationFilterTests {
     private JwtDecoder jwtDecoder;
     @Mock
     private TokenProvider tokenProvider;
-    @Mock
-    private Logger logger;
     @Mock
     private HttpServletRequest request;
     @Mock

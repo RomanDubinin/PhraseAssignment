@@ -27,7 +27,7 @@ public class Encrypter {
 
         String jwtString;
         try {
-            jwtString = encode(content, key);
+            jwtString = encrypt(content, key);
         } catch (JOSEException | InvalidKeySpecException | NoSuchAlgorithmException | IllegalArgumentException e) {
             System.out.println(e.getMessage());
             return;
@@ -36,7 +36,7 @@ public class Encrypter {
         System.out.println(jwtString);
     }
 
-    private static String encode(String content, String key) throws JOSEException, InvalidKeySpecException, NoSuchAlgorithmException {
+    private static String encrypt(String content, String key) throws JOSEException, InvalidKeySpecException, NoSuchAlgorithmException {
         var keyFactory = KeyFactory.getInstance("RSA");
         byte[] keyBytes;
         try {
