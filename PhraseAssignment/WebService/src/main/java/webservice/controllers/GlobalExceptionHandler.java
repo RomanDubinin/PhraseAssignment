@@ -32,4 +32,11 @@ public class GlobalExceptionHandler {
         response.put("message", "Conflict on data change operation.");
         return ResponseEntity.status(HttpStatus.CONFLICT).body(response);
     }
+
+    @ExceptionHandler(IllegalAccessException.class)
+    public ResponseEntity<Map<String, Object>> handleError(IllegalAccessException e) {
+        Map<String, Object> response = new HashMap<>();
+        response.put("message", e.getMessage());
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(response);
+    }
 }

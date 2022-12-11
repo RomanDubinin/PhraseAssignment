@@ -31,7 +31,12 @@ public class JwtDecoder {
         jwt.decrypt(decrypter);
         var loginResponseJson = jwt.getJWTClaimsSet().getClaim("login_response").toString();
 
-        var loginResponse = objectMapper.readValue(loginResponseJson, LoginResponse.class);
+        LoginResponse loginResponse;
+        try {
+            loginResponse = objectMapper.readValue(loginResponseJson, LoginResponse.class);
+        } catch (com.fasterxml.jackson.databind.JsonMappingException | com.fasterxml.jackson.core.JsonParseException e) {
+            throw new IllegalArgumentException("JSON content of your JWT is invalid");
+        }
         return loginResponse.getToken();
     }
 }

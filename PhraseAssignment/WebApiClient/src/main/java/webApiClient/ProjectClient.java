@@ -38,6 +38,10 @@ public class ProjectClient {
 
         var response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
 
+        if(response.statusCode() == 401) {
+            logger.log(Level.SEVERE, response.body());
+            throw new IllegalAccessException("Unauthorised");
+        }
         if(response.statusCode() != 200) {
             logger.log(Level.SEVERE, response.body());
             throw new Exception(response.body());
